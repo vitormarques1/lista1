@@ -1,0 +1,8 @@
+p = i; -> Válida
+q = &j; -> Válida
+p = &*&i; -> Válida
+i = (*&)j; -> Inválida
+i = *&j; -> Válida
+i = *&*&j; -> Válida
+q = *p; -> Válida
+i = (*p)++ + *q; -> Válida
