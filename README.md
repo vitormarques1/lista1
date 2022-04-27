@@ -1,1 +1,1 @@
-# lista1
+# Repositório para tarefas de programação
