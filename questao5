@@ -1,0 +1,6 @@
+contador/     valor/       valor/        endereco/      endereco
+i = 0vet[0] = 1.1*(f + 0) = 1.1&vet[0] = 65FDF0(f + 0) = 65FDF0
+i = 1vet[1] = 2.2*(f + 1) = 2.2&vet[1] = 65FDF4(f + 1) = 65FDF4
+i = 2vet[2] = 3.3*(f + 2) = 3.3&vet[2] = 65FDF8(f + 2) = 65FDF8
+i = 3vet[3] = 4.4*(f + 3) = 4.4&vet[3] = 65FDFC(f + 3) = 65FDFC
+i = 4vet[4] = 5.5*(f + 4) = 5.5&vet[4] = 65FE00(f + 4) = 65FE00
