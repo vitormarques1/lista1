@@ -1,0 +1,6 @@
+1) p = mat + 1;
+2) p = mat++;
+3) p = ++mat;
+4) x = (*mat)++;
+
+Somente a 1ª e 4ª podem ser realizadas, pq não pode-se incrementar valor do tipo int ao ponteiro
