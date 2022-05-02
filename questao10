@@ -1,0 +1,14 @@
+*CHAIR
+#include <stdio.h>
+
+int main(){
+ 	
+	chair x[4] = {1,2,3,4};
+ 	 int i;
+ 	 &i==4092;
+ 	 for(i=0;i<4;i++){
+  	  printf("x+%d = %X \n",i+1 ,(x+i));
+ 	}
+}
+
+*INT
