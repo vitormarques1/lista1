@@ -1,4 +1,4 @@
-*CHAIR
+# CHAIR
 #include <stdio.h>
 
 int main(){
