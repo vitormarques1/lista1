@@ -1,0 +1,20 @@
+O ponteiro para uma função define qual função irá ser executada em um determinado tempo, sem que seja necessário escrever o nome da função, a qual será usada.
+
+Por exemplo, esse programa que aprendemos em sala de aula, que troca os valores entre dois ponteiros de lugar.
+
+#include <stdio.h>
+
+void troca(int a, int b){
+  int tmp;
+  printf("troca: a= %d, b= %d\n", a, b);
+  tmp = a; a = b; b = tmp;
+  printf("troca: a= %d, b= %d\n", a, b);
+}
+
+int main(){
+  int x=3, y=4;
+  printf("main : x= %d, y= %d\n", x, y);
+  troca(x, y);
+  printf("main : x= %d, y= %d\n", x, y);
+  return 0;
+}
