@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+float compare(const void *a, const void *b){       // função compare do qsort
+	if ( *(float*)a <  *(float*)b ) return -1;
+	if ( *(float*)a >  *(float*)b ) return 1;
+	if ( *(float*)a == *(float*)b ) return 0;
+}
+
+void organize(float *vetor, int size,float (*organizar)(float *a, float *b)){       // criação da função organize para substituir o qsort
+
+float aux=0;                        // declaraçao de um auxiliar
+for (int z=0; z<size; z++){         //laço de repetição que funciona com o qsort
+	for(int y=z+1; y<size; y++){
+    	if(organizar(vetor+z, vetor+y) > 0){
+    	aux=vetor[y];
+    	vetor[y]=vetor[z];
+    	vetor[z]=aux;
+      }
+    }
+  }
+}
+
+int main() {
+	float *x;   // ponteiro que aponta para float
+	int n, i;   // quantidade de numeros e contador
+
+	printf("digite a quantidade de numeros:");
+	scanf("%d", &n);
+
+x = malloc(n*sizeof(float));   // criar um vetor x
+
+for(i = 0; i<n; i++){
+	printf("digite o valor %d :", i+1);
+	scanf("%f",&x[i]);
+}
+
+organize(x, n, compare);   // utilizaçao da funçao criada no lugar do qsort
+
+printf("\nValores em ordem crescente: \n\n");
+for(i=0; i<n; i++){
+	printf("%.2f \n", x[i]);
+}
+
+free(x);
+return 0;
+} 
