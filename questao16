@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h> 
+#include <time.h>
+
+int compare(const void *a, const void *b){
+	if (*(float*)a < *(float*)b) return -1;
+	if (*(float*)a > *(float*)b) return 1;
+	if (*(float*)a == *(float*)b) return 0;
+}
+
+int main(){
+  clock_t Ticks[2];
+  float *x;
+  int n, i;
+  
+  Ticks[0] = clock();  
+  printf("Digite a quantidade de numeros:\n");
+  scanf("%d", &n);
+  
+  x = (float *) malloc(n * sizeof(float));
+  
+  for (i=0; i<n; i++)
+  {
+    printf("\nDigite o valor %d: ", i+1);
+    scanf("%f",&x[i]);
+  }
+  qsort(x, n, sizeof(float), compare);
+  
+  printf("\nValores em ordem crescente: \n\n");
+  
+  for (i=0; i<n; i++)
+  {
+    printf("%.2f\n",x[i]);
+  }
+free(x);
+
+Ticks[1] = clock();
+double Tempo = (Ticks[1] - Ticks[0]) * 1000.0 / CLOCKS_PER_SEC;
+printf("Tempo gasto: %g ms.", Tempo);
+getchar();
+  
+return 0;
+}
+
+De acordo com oq foi pesquisado montei o programa com a biblioteca time.h, para medição do tempo, em seguida testei nos dois programas e conclui que a utilização do qsort torna mais rápida a realização do programa.
