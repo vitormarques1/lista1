@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h> 
+
+int main(){
+  float *x, aux;
+  int i, n;
+  
+  printf("Digite a quantidade de numeros:\n");
+  scanf("%d", &n);
+  
+  x = (float *) malloc(n * sizeof(float));
+  
+  for (i=0; i<n; i++)
+  {
+    printf("\nDigite o valor %d: ", i+1);
+    scanf("%f",&x[i]);
+  }
+  
+  for (int a=0; a<n; a++){
+  for(int b=0; b<n; b++){
+    if(a==0){
+      if(x[a]>x[b]){
+        aux=x[b];
+        x[b]=x[a];
+        x[a]=aux;
+      }
+    }
+    else {
+      if((x[a]<x[b]) && (x[a]<x[a-1]) ){
+        aux=x[b];
+        x[b]=x[a];
+        x[a]=aux;
+      }
+    }
+    }
+  }
+  printf("\nValores em ordem crescente: \n\n");
+  
+  for (i=0; i<n; i++)
+  {
+    printf("%.2f\n",x[i]);
+  }
+ 
+  free(x);
+  return 0;
+}
