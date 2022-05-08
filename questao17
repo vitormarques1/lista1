@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *v1, *v2, *vsoma;
+	int x,i;
+	
+    printf("Escolha o tamanho dos vetores: ");
+    scanf("%d", &x);
+    
+	v1 = (void*)malloc(x * sizeof(int));
+    v2 = (void*)malloc(x * sizeof(int));
+    vsoma = (void*)malloc(x * sizeof(int));
+    
+	for(i = 0; i < x; ++i) {
+         v1[i] = i;
+    }
+    for(i = 0; i < x; ++i) {
+         v2[i] = i;
+    }
+    for(i = 0; i < x; ++i) {
+         vsoma[i] = i;
+    }
+    printf("\nEscolha os valores de cada posicao do primeiro vetor \n");
+        for(i = 0; i < x; i++){
+            printf("x[%d] = ", i);
+            scanf("%d", &v1[i]);
+    }
+    printf("\nEscolha os valores de cada posicao do segundo vetor \n");
+        for(i = 0; i < x; i++){
+            printf("x[%d] = ", i);
+            scanf("%d", &v2[i]);
+    }
+    for(i = 0; i < x; ++i){
+         vsoma[i] = (v1[i] + v2[i]);
+    }
+    printf("A soma dos vetores e igual ao Vetor: ");
+    for(i = 0; i < x; ++i){
+          printf("%d  ", vsoma[i]);
+    }
+
+    free(v1);
+    free(v2);
+    free(vsoma);
+    return 0;
+}
