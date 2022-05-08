@@ -1,0 +1,15 @@
+a)aloha[2] = value; Resposta: Válida
+
+b)scanf("%f", &aloha);  Resposta: Válida
+
+c)aloha = "value";  Resposta: Inválida
+
+d)printf("%f", aloha); Resposta: Válida
+
+e)coisas[4][4] = aloha[3]; Resposta: Válida
+
+f)coisas[5] = aloha; Resposta: Inválida
+
+g)pf = value; Resposta: Inválida
+
+h)pf = aloha; Resposta: Válida
