@@ -1,0 +1,88 @@
+Professor tive muita dificuldade para fazer essa questão, não consegui faze-la sozinho, me basei em um programa que vi na internet. 
+Se for possível depois demonstra ela em sala, por favor.
+
+
+#include <stdlib.h>
+#include <stdio.h>
+
+// dimensoes das matrizes
+void matdim(int *nl, int *nc,char texto[]) {  
+	printf("Digite a quantidade de linhas de %s:\t",texto);
+    scanf("%d",nl);
+    printf("Digite a quantidade de colunas de %s:\t",texto);
+    scanf("%d",nc);
+}
+
+// montar as matrizes
+int *mat (int nl, int nc,char texto[]){
+    int l,c;
+    int *temp;
+    temp = (int *) calloc((nl*nc), sizeof(int));
+    if (temp) {
+              for (l=0;l<nl;l++) {
+                  for (c=0;c<nc;c++) {
+                      printf("Digite o elemento [%d , %d] de %s:\t",l+1,c+1,texto);
+                      scanf("%d",&temp[(l*nc)+c]);
+                  }
+              }
+    }
+    return temp; 
+}
+
+// multiplicar as matrizes
+int *mult (int *matA, int *matB, int nla, int nca, int nlb, int ncb){
+ int l,c,k;
+ int *result;
+ result= (int *) calloc((nla*ncb),sizeof(int));
+         if (result) {
+             for (l=0;l<nla;l++){
+                 for (c=0;c<ncb;c++){
+                     result[(l*ncb)+c]=0;
+                     for (k=0;k<nca;k++) {
+                         result[(l*ncb)+c]=result[(l*ncb)+c]+matA[(l*nca)+k]*matB[(k*ncb)+c];
+                     }
+                 }
+             }
+         }                   
+    return(result);
+}
+
+// imprimir as matrizes no console
+void imprimeMatriz (int nl, int nc, int *matRes) {
+ int l, c;
+ for (l=0;l<nl;l++){
+     for (c=0;c<nc;c++) {
+         printf("\t %d", matRes[(l*nc)+c]);
+     }
+     printf ("\n\n\n");
+ }    
+}
+
+int main(int argc, char *argv[]){
+    int nla,nca,nlb,ncb;
+    int *matA,*matB,*matRes;
+    matdim(&nla,&nca,"A");
+    matdim(&nlb,&ncb,"B");
+    while (nla != ncb){
+          printf("Matrizes Incompativeis\n");
+          printf("Digite novamente a quantidade de colunas de B\n");
+          scanf("%d",&ncb);
+    }
+    ("\nValores da Matriz A");
+    matA=mat(nla,nca,"A");
+    printf("\nMatriz A:\n\n");
+	imprimeMatriz(nla,nca,matA);
+    
+    
+	printf("\nValores da Matriz B");
+    matB=mat(nlb,ncb,"B");
+    printf("\nMatriz B:\n\n");
+	imprimeMatriz(nlb,ncb,matB);
+   
+	
+	matRes=mult(matA,matB,nla,nca,nlb,ncb);
+	printf("\nResultado da multiplicacao\n\n");
+	imprimeMatriz(nla,ncb,matRes);
+    
+	return 0;
+}
